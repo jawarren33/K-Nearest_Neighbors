@@ -107,28 +107,6 @@ print(XN.shape)
 myplotGrid(XN,y)
 
 
-# If you were to build a classifier using only two of the available features, which ones would you choose and why?Well, I would choose Flavanoids and alcohol, or color intensity and flavanoids, because the data points deriving from those two combinations of variables represent cluster pattern for each of the three classes, the euclidean distance between the three nearest neighbors for each cluster would be the greatest,  which makes it easier to cluster the data into 3 classifiers without overfitting. Those features appear to be the main indicators for classifying the data.
-# 
-# Alcohol becomes less accurate when noise is added to the data than both color intensity and flavanoids, so I would probably choose color intensity and flavanoids if using data with noise. 
-# 
-# Color intensity could be a useable feature, however, when used with the 'ash' feature, the data becomes convoluded and impact the accuracy of the model. This may lead to a misinterpretation when a color intensity feature is mistaken for an ash feature.
-# 
-# Overall, ash should be excluded from the selected features to improve the overall prediction accuracy of the model as there is no distiguishable correllation between 'ash' and the class of the wine.
-#     
-
-# 
-# 
-# What do you observe by plotting the data without noise compared to plotting with added Gaussian noise? 
-# 
-
-# The overall euclidean distances between the nearest neighbor points are smaller as the classes are more spread,  making it more difficult to cluster the data with a high accuracy score. This may lead to overfitting of the data to achieve a greater  accuracy score as it will be lower due to the higher variance of the data points. 
-# 
-# The color intensity variable appears to be unaffected by the noise.
-# 
-# 
-
-# 
-# In the cell below, I develop code for performing k-Nearest Neighbour classification. 
 # 
 # I define a function that performs k-NN given a set of data and can be invoked by:
 # 
