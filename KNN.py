@@ -71,7 +71,7 @@ myplotGrid(XN,y)
 
 
 # 
-# I define a function that performs k-NN given a set of data and can be invoked by:
+# Function that performs k-NN given a set of data and can be invoked by:
 # 
 #         y_ = mykNN(X,y,X_,options)
 #         
