@@ -79,8 +79,6 @@ myplotGrid(XN,y)
 # 
 # 
 
-# In[53]:
-
 
 # helper code for X
 from sklearn.model_selection import train_test_split
@@ -115,8 +113,6 @@ print("For noisy data: \n", confusion_matrix(yN_test,yN_pred))
 print(accuracy_score(yN_test,yN_pred))
 
 
-# In[54]:
-
 
 #Split the data into a train and test set for clean data
 
@@ -144,8 +140,6 @@ def Split(X,Y):
     return X_train,Y_train,X_test,Y_test
 
 
-# In[55]:
-
 
 #define a distance function between the training and test points
 #define 2 distance functions to test in cross validation
@@ -153,9 +147,6 @@ def euclidian_dist(x1,x2):
     return np.sqrt(sum((x1-x2)**2))
 def manhattan_dist(x1,x2):
     return np.abs(sum(x1-x2))
-
-
-# In[56]:
 
 
 #define neighbors function 
@@ -193,9 +184,6 @@ def kNN(X,Y,queryPoint,k,dist):
     return pred
 
 
-# In[57]:
-
-
 #assign prediction labels to test sample
 
 def knn_pred(X,Y,X_,k,d):
@@ -205,8 +193,6 @@ def knn_pred(X,Y,X_,k,d):
     return y_pred
 
 
-# In[58]:
-
 
 def myknn(X_df,Y,k,d):
     X = CleanX(X_df)
@@ -214,22 +200,15 @@ def myknn(X_df,Y,k,d):
     return knn_pred(X,Y,X_,k,d),Y_
 
 
-# In[59]:
-
-
 ypred,ytest=myknn(X,y,5,0)
 ypredN,ytestN=myknn(XN,y,5,0)
 print(accuracy_score(ytest,ypred))
 print(accuracy_score(ytestN,ypredN))
 
-      
-
+     
 
 # 
 # In the cell below, I implement my own classifier evaluation code. 
-
-# In[60]:
-
 
 #Accuracy Score
 def accuracy(ytest,ypred):
@@ -239,9 +218,6 @@ def accuracy(ytest,ypred):
 
 print("The Accuracy score for the clean data is: \n", accuracy(ytest,ypred)*100, "%")
 print("The Accuracy score for the Noisy data is: \n", accuracy(ytestN,ypredN)*100, "%")
-
-
-# In[61]:
 
 
 #Confusion Matrix
@@ -266,8 +242,6 @@ print("The confusion matrix for the clean data is : \n" , myconfmat(y_test,y_pre
 # where X is the data matrix (containing all samples and features for each sample), 5 is the number of folds, y are the known output labels, ``list(range(1,11)`` evaluates the neighbour parameter from 1 to 10, and ``['euclidean','manhattan',...]`` evaluates the distances on the validation sets.  mySeed is simply a random seed to enable us to replicate the results.
 # 
 # 
-
-# In[63]:
 
 
 # myNestedCrossVal code
