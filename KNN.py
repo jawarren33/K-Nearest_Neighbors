@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# 
-# 
-
 # We are going to be working with the **Wine** dataset. 
 # This is a 178 sample dataset that categorises 3 different types of Italian wine using 13 different features. 
 # The code below loads the Wine dataset and selects a subset of features to work with. 
@@ -338,59 +335,9 @@ def myNestedCrossVal(X,Y,fold,Klist,distancelist,mySeed):
         acc.append(Accuracy)
     return acc,K ,D 
                 
-                
-                
-                
-            
-            
-    
-    
-    
-    
-
-
-# In[64]:
-
-
 # evaluate clean data code
 myNestedCrossVal(X,y,5,list(range(1,11)),['euclidean','manhattan'],1)
-
-
-# In[65]:
-
 
 # evaluate noisy  data code
 myNestedCrossVal(XN,y,5,list(range(1,11)),['euclidean','manhattan'],1)
 
-
-# 
-# Using the results from above, I fill out the following table using the **clean** data:
-# 
-# | Fold | accuracy |  k  | distance |
-# | --- | --- | --- | --- |
-# | 1 | .861  |  8 | euclidean  |
-# | 2 | .944 |  8 | euclidean  |
-# | 3 | .944  |  8 | euclidean  |
-# | 4 | .828  |  4 | euclidean  |
-# | 5 | .942  |  9 | euclidean  |
-# | **total** | .? $\pm$ ? |   |    |
-# 
-# Where **total** is given as an average over all the folds, and $\pm$ the standard deviation.
-# 
-# Then I fill out the following table using the **noisy** data:
-# 
-# | Fold | accuracy |  k  | distance |
-# | --- | --- | --- | --- |
-# | 1 | .888  |  9 | euclidean  |
-# | 2 | .888  |  9 | euclidean  |
-# | 3 | .861  |  3 | euclidean  |
-# | 4 | .857  |  3 | euclidean  |
-# | 5 | .885  |  3 | euclidean  |
-# | **total** | .? $\pm$ ? |   |    |
-# 
-
-# 
-# 
-
-# 
-# 
