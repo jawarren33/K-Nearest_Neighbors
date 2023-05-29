@@ -4,9 +4,9 @@
 # 
 # 
 
-# We are going to be working with the **Wine** dataset. This is a 178 sample dataset that categorises 3 different types of Italian wine using 13 different features. The code below loads the Wine dataset and selects a subset of features to work with. 
-
-# In[1]:
+# We are going to be working with the **Wine** dataset. 
+# This is a 178 sample dataset that categorises 3 different types of Italian wine using 13 different features. 
+# The code below loads the Wine dataset and selects a subset of features to work with. 
 
 
 # set matplotlib backend to inline
@@ -28,34 +28,23 @@ selected_features = ['alcohol','flavanoids','color_intensity','ash']
 
 # extract the data as numpy arrays of features, X, and target, y
 y = wine.target
-
 X = pd.DataFrame((df_wine[selected_features].values), columns = (selected_features))
 X_val = np.array(X)
-
-
 print(X)
 
 
+# The first part of tackling any ML problem is visualising the data in order to understand some of the properties of the problem at hand. 
+# When there are only a small number of classes and features, it is possible to use scatter plots to visualise interactions between different pairings of features. 
 # 
-# The first part of tackling any ML problem is visualising the data in order to understand some of the properties of the problem at hand.  When there are only a small number of classes and features, it is possible to use scatter plots to visualise interactions between different pairings of features. 
 # 
-# 
-# ![image.png](attachment:image.png)
-# 
-# I created a function that, given data X and labels y, plots this grid.  The function can be invoked like this:
+# A function that, given data X and labels y, plots this grid.  The function can be invoked like this:
 #         
 #     myplotGrid(X,y,...)
 #     
-# where X is my training data and y are the labels (you may also supply additional optional arguments). 
-# 
-
-# In[50]:
-
+# where X is the training data and y are the labels (you may also supply additional optional arguments). 
 
 
 # define plotting function 
-
-        
 def myplotGrid(X,y):
     X['target']=y
     
@@ -63,35 +52,14 @@ def myplotGrid(X,y):
     del X['target']
     return          
         
-    
-
-
-# In[51]:
-
 
 # run the plotting function
-
 myplotGrid(X,y)
 
 
 # 
-# When data are collected under real-world settings they usually contain some amount of noise that makes classification more challenging. In the cell below, I invoke the exploratory data analysis function above on a noisy version of the data X.
-# 
-# I pertrube the data with some Gaussian Noise:
-# 
-#     # initialize random seed to replicate results over different runs
-#     mySeed = 12345 
-#     np.random.seed(mySeed) 
-#     XN=X+np.random.normal(0,0.5,X.shape)
-#     
-# and then invoke
-# 
-#     myplotGrid(XN,y)
+# Add some Gaussian Noise:
 
-# In[52]:
-
-
-# noise code 
 mySeed = 12345
 np.random.seed(mySeed)
 XNoise = np.random.normal(0,0.5,X.shape)
@@ -99,11 +67,9 @@ XN = pd.DataFrame(X + XNoise)
 XN_Val = np.array(XN)
 
 print(XN)
-
 print(XN.shape)
 
 #graph noise data
-
 myplotGrid(XN,y)
 
 
